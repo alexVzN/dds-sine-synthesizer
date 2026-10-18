@@ -1,0 +1,25 @@
+# Vivado generated
+*.runs/
+*.gen/
+*.cache/
+*.sim/
+*.hw/
+*.ip_user_files/
+*.srcs/sources_1/bd/*/hdl/
+*.bda
+*.Xil/
+*.tmp/
+xsim.dir/
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+vivado_pid*.debug
+webtalk*
+nlviewcommon.logfile
+*.xsa
+
+# Vitis workspace (rebuilt by sw/create_workspace.py)
+vitis/
+*.zip
