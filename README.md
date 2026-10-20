@@ -83,7 +83,7 @@ Examples:
 | system simulation with MicroBlaze and the real firmware (`sim/tb_system.vhd`) | PASS |
 | one channel after implementation | 196 LUT, 193 FF, 1 DSP, 0.5 BRAM36 |
 | timing at 100 MHz | WNS +1.501 ns, WHS +0.033 ns, no violations |
-| hardware | CLI over UART, waveforms captured with ILA |
+| hardware | CLI over UART, waveforms captured with ILA and on an oscilloscope via the sigma-delta output and a two-stage RC filter |
 
 Expected values of the testbench scenarios and the way they were obtained are in [REPORT.md](REPORT.md), section 3.
 
@@ -123,8 +123,8 @@ Program the board from Hardware Manager (`dds_system_wrapper.bit` + `.ltx`) and 
 picocom -b 230400 /dev/ttyUSB0
 ```
 
-The analog output is pin 3 of header J5 (H19); an RC low-pass (e.g. 1 kΩ / 10 nF, or two RC stages in series)
-makes it visible on an oscilloscope.
+The analog output is pin 3 of header J5 (H19). The oscilloscope captures in `docs/` use a two-stage RC low-pass:
+1 kΩ + 1 nF followed by 10 kΩ + 100 pF (each stage 159 kHz, overall ≈ 102 kHz at −3 dB, ≤ 1 dB loss up to ~50 kHz).
 
 ## License
 
